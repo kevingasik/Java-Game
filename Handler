@@ -1,0 +1,63 @@
+package com.tutorial.main;
+
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Rectangle;
+import java.util.Random;
+
+public class FastEnemy extends GameObject {
+	
+	private Handler handler; 
+	private int change = 0; 
+	private int count = 0;
+	Random r = new Random(); 
+	private int R; 
+	private int G; 
+	private int B; 
+	
+	public FastEnemy(int x, int y, ID id, Handler handler){ 
+		super(x,y,id);
+		this.handler = handler;
+	
+		velX = 2 + r.nextInt(10); 
+		velY = 2 + r.nextInt(10);
+		
+	}
+	public Rectangle getBounds(){ 
+		return new Rectangle((int)x,(int) y, 16, 16);
+	}
+	public void tick(){ 
+		x += velX;
+		y += velY;
+		count++;
+		 R = (int) r.nextInt(255);
+		 G = (int) r.nextInt(255);
+		 B = (int) r.nextInt(255);
+		if(count >= 600){ 
+			handler.removeObject(this);
+		}
+		
+		if(y <= 0 || y >= Game.HEIGHT -64) { 
+			velY *= -1;
+		} 
+		if(x <= 0 || x >= Game.WIDTH - 16){ 
+			velX *= -1;
+		}
+		Color randomColor = new Color(R,G,B);
+		handler.addObject(new BasicTrail(x,y,ID.BasicTrail,randomColor, 16, 16 ,0.1f, handler));
+		
+	}
+	
+	public void render(Graphics g){ 
+		//Graphics2D g2d = (Graphics2D) g;
+		//g.setColor(Color.green);
+		//g2d.draw(getBounds());
+		
+		
+				g.setColor(Color.black);
+				g.fillRect((int)x,(int) y, 16, 16);
+				change++; 
+		 
+	}
+
+}
