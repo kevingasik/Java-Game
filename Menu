@@ -1,0 +1,173 @@
+package com.tutorial.main;
+
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.Random;
+
+import com.tutorial.main.Game.STATE;
+
+public class Menu extends MouseAdapter{
+	
+	private Game game;
+	private Handler handler;
+	private Random r  = new Random(); 
+	private HUD hud; 
+	private int h;
+	private int s;
+	private int b;
+	
+	public Menu(Game game, Handler handler, HUD hud){ 
+		this.game = game;
+		this.hud = hud;
+		this.handler = handler; 
+	}
+	
+	public void mousePressed(MouseEvent e){ 
+		int mx = e.getX();
+		int my = e.getY();
+		
+		if(game.gameState == STATE.Menu){
+		
+		//play button
+		if(mouseOver(mx,my,220,110,200,50)){ 
+			//game.gameState = STATE.Game;
+			//handler.addObject(new Player((Game.WIDTH/2)- 32, r.nextInt(Game.HEIGHT)-32, ID.Player, handler));
+			//handler.clearEnemys();
+			game.gameState = STATE.Select;
+		}
+		//help button
+		if(mouseOver(mx,my,220,190,200,50)){ 
+			game.gameState = STATE.Help;
+			
+		}
+		//quit button
+		if(mouseOver(mx,my,220,270,200,50)){ 
+			System.exit(1);
+		}
+		
+		
+		
+	} else if(game.gameState == STATE.Help || game.gameState == STATE.End){ 
+			if(mouseOver(mx,my,220,190,200,64)){ 
+				hud.setscore(0);
+				hud.setLevel(1);
+				game.gameState = STATE.Menu;
+			}
+		}else if(game.gameState == STATE.Select ){ 
+			if(mouseOver(mx,my,220,110,200,50)){ 
+				game.gameState = STATE.Game;
+				handler.addObject(new Player((Game.WIDTH/2)- 32, r.nextInt(Game.HEIGHT)-32, ID.Player, handler));
+				handler.clearEnemys();
+			}
+			if(mouseOver(mx,my,220,190,200,50)){ 
+				game.gameState = STATE.Game;
+				handler.addObject(new Player((Game.WIDTH/2)- 32, r.nextInt(Game.HEIGHT)-32, ID.Player, handler));
+				handler.clearEnemys();
+				game.diff = 1;
+							
+			}if(mouseOver(mx,my,220,270,200,50)){ 
+				game.gameState = STATE.Menu;
+			}
+		}
+}
+	
+	public void mouseReleased(MouseEvent e){ 
+		
+	}
+	private boolean mouseOver(int mx, int my,int x, int y, int width, int height){ 
+		if(mx > x && mx < x + width){ 
+			if(my > y && my < y + height){
+				return true;
+			}else return false;
+		}else return false;
+	}
+	public void tick(){
+		h = r.nextInt(255);
+		s = r.nextInt(255);
+		b = r.nextInt(255);
+	}
+	
+	public void render(Graphics g){ 
+		if(game.gameState == STATE.Menu){ 
+			Font fnt = new Font("arial",1,50);
+			Font fnt2 = new Font("arial",1,30);
+			
+			g.setFont(fnt);
+			g.setColor(Color.getHSBColor(h, s, b));
+			g.drawString("DODGE", 230, 70);
+			
+			g.setFont(fnt2);
+			g.setColor(Color.white);
+			g.drawString("Play", 285, 145);
+		
+			g.setColor(Color.white);
+			g.drawRect(220,110, 200, 50);
+		
+			g.setColor(Color.white);
+			g.drawRect(220,190, 200, 50);
+			g.drawString("Help", 285, 225);
+		
+			g.setColor(Color.white);
+			g.drawRect(220,270, 200, 50);
+			g.drawString("Quit", 285, 305);
+	} else if(game.gameState == STATE.Help){ 
+			Font fnt3 = new Font("arial", 1 , 50);
+			Font fnt4 = new Font("arial", 1 , 30);
+			Font fnt5 = new Font("arial", 1, 20);
+			
+			g.setFont(fnt3);
+			g.setColor(Color.red);
+			g.drawString("Help",250, 70);
+			
+			g.setFont(fnt5);
+			g.setColor(Color.white);
+			g.drawString("Use WASD to move, Dodge particles", 150, 150);
+		
+			g.drawRect(220, 190, 200, 50);
+			g.setFont(fnt4);
+			g.drawString("Back", 280, 225);
+		}else if(game.gameState == STATE.End){ 
+			Font fnt3 = new Font("arial", 1 , 50);
+			Font fnt4 = new Font("arial", 1 , 30);
+			Font fnt5 = new Font("arial", 1, 20);
+			
+			g.setFont(fnt3);
+			g.setColor(Color.red);
+			g.drawString("GAME OVER",180, 70);
+			
+			g.setFont(fnt5);
+			g.setColor(Color.white);
+			g.drawString("You lost with a score of: " + hud.getScore(), 170, 150);
+		
+			g.drawRect(220, 190, 200, 50);
+			g.setFont(fnt4);
+			g.drawString("Try Again", 260, 225);
+		}else if(game.gameState == STATE.Select){ 
+			Font fnt = new Font("arial",1,50);
+			Font fnt2 = new Font("arial",1,30);
+			
+			g.setFont(fnt);
+			g.setColor(Color.getHSBColor(h, s, b));
+			g.drawString("Select Mode", 230, 70);
+			
+			g.setFont(fnt2);
+			g.setColor(Color.white);
+			g.drawString("Normal", 285, 145);
+		
+			g.setColor(Color.white);
+			g.drawRect(220,110, 200, 50);
+		
+			g.setColor(Color.white);
+			g.drawRect(220,190, 200, 50);
+			g.drawString("Hard", 285, 225);
+		
+			g.setColor(Color.white);
+			g.drawRect(220,270, 200, 50);
+			g.drawString("Back", 285, 305);
+		}
+
+}
+} 
