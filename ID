@@ -1,0 +1,14 @@
+package com.tutorial.main;
+
+public enum ID {
+
+	Player(),
+	BasicTrail(),
+	BasicEnemy(),
+	FastEnemy(),
+	EnemyBoss(),
+	MenuParticle(), 
+	HardEnemy(),
+	SmartEnemy();
+	
+}
