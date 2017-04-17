@@ -1,0 +1,210 @@
+package com.tutorial.main;
+
+import java.util.Random;
+
+public class Spawn {
+	
+	private Handler handler; 
+	private HUD hud;
+	private Random r = new Random();
+	private Game game;
+	
+	private int scoreKeep = 0;
+	
+	public Spawn(Handler handler,HUD hud, Game game){ 
+		this.handler = handler; 
+		this.hud = hud; 
+		this.game = game;
+		
+	}
+	
+	public void tick(){
+		scoreKeep++; 
+		//normal
+		if(scoreKeep >= 100){ 
+			scoreKeep = 0;
+			hud.setLevel(hud.getLevel() + 1);
+			if(game.diff == 0){ 
+				if(hud.getLevel() == 2){ 
+					handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+					handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+					handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+					handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+				}else if(hud.getLevel() == 3){ 
+					handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+					handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+					handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+					handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+				}else if(hud.getLevel() == 4){ 
+					handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+					handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+					handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+					handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+				}else if(hud.getLevel() == 6){ 
+						handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+						handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+						handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+						handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+				}else if(hud.getLevel() == 7){ 
+						handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+						handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+						handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+						handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+				}else if(hud.getLevel() == 8){ 
+						handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+						handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+						handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+						handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+				}else if(hud.getLevel() == 9){ 
+						handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+						handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+						handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+						handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+				}else if(hud.getLevel() == 10){ 
+					handler.addObject(new FastEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.FastEnemy, handler ));
+					handler.addObject(new FastEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.FastEnemy, handler ));
+					handler.addObject(new FastEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.FastEnemy, handler ));
+				}else if(hud.getLevel() == 11){ 
+					handler.addObject(new FastEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.FastEnemy, handler ));
+					handler.addObject(new FastEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+					handler.addObject(new FastEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+				}else if(hud.getLevel() == 12){ 
+					handler.addObject(new FastEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.FastEnemy, handler ));
+					handler.addObject(new FastEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+					handler.addObject(new FastEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+				}else if(hud.getLevel() == 13){ 
+						handler.addObject(new FastEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.FastEnemy, handler ));
+						handler.addObject(new FastEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+						handler.addObject(new FastEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+				}else if(hud.getLevel() == 14){ 
+						handler.addObject(new FastEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.FastEnemy, handler ));
+						handler.addObject(new FastEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+						handler.addObject(new FastEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+				}else if(hud.getLevel() == 15){ 
+						handler.addObject(new FastEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.FastEnemy, handler ));
+						handler.addObject(new FastEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+						handler.addObject(new FastEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+				}else if(hud.getLevel() == 16){ 
+						handler.addObject(new FastEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.FastEnemy, handler ));
+						handler.addObject(new FastEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+						handler.addObject(new FastEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+				}else if(hud.getLevel() == 17){ 
+					handler.addObject(new FastEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.FastEnemy, handler ));
+				}else if(hud.getLevel() == 18){ 
+					handler.addObject(new FastEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.FastEnemy, handler ));
+				}else if(hud.getLevel() == 19){ 
+					handler.addObject(new FastEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.FastEnemy, handler ));	
+				}else if(hud.getLevel() == 20){ 
+						handler.addObject(new SmartEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.SmartEnemy, handler ));
+						handler.addObject(new SmartEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.SmartEnemy, handler ));
+						handler.addObject(new SmartEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.SmartEnemy, handler ));
+						handler.addObject(new SmartEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.SmartEnemy, handler ));
+				}else if(hud.getLevel() == 21){ 
+						handler.addObject(new SmartEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.SmartEnemy, handler ));
+						handler.addObject(new SmartEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.SmartEnemy, handler ));
+						handler.addObject(new SmartEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.SmartEnemy, handler ));
+						handler.addObject(new SmartEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.SmartEnemy, handler ));
+				}else if(hud.getLevel() == 22){ 
+						handler.addObject(new SmartEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.SmartEnemy, handler ));
+						handler.addObject(new SmartEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.SmartEnemy, handler ));
+						handler.addObject(new SmartEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.SmartEnemy, handler ));
+						handler.addObject(new SmartEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.SmartEnemy, handler ));
+				}else if(hud.getLevel() == 23){ 
+						handler.addObject(new SmartEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.SmartEnemy, handler ));
+				}else if(hud.getLevel() == 24){
+						handler.addObject(new EnemyBoss((Game.WIDTH)/2 -46,-120, ID.EnemyBoss, handler ));
+				}else if(hud.getLevel() == 30){ 
+					handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+					handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+					handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+					handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+					handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+					handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+				}else if(hud.getLevel() == 40){ 
+					handler.clearEnemys();
+				}else if(hud.getLevel() == 41){ 
+					handler.addObject(new FatEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+					handler.addObject(new FatEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+					handler.addObject(new FatEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+					handler.addObject(new FatEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+					
+				}else if(hud.getLevel() == 42){ 
+					handler.addObject(new FatEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+					handler.addObject(new FatEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+					handler.addObject(new FatEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+					handler.addObject(new FatEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+					
+				}else if(hud.getLevel() == 43){ 
+					handler.addObject(new FatEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+					handler.addObject(new FastEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+					handler.addObject(new SmartEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+					handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+					
+				}else if(hud.getLevel() == 44){ 
+					handler.addObject(new FatEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+					handler.addObject(new FastEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+					handler.addObject(new SmartEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+					handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+					
+				}else if(hud.getLevel() == 45){ 
+					handler.addObject(new FatEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+					handler.addObject(new FastEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+					handler.addObject(new SmartEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+					handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+					
+				}
+			}else if(game.diff == 1){ 
+				if(hud.getLevel() == 2){ 
+					handler.addObject(new HardEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+				}else if(hud.getLevel() == 3){ 
+					handler.addObject(new HardEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+				}else if(hud.getLevel() == 4){ 
+					handler.addObject(new HardEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));	
+				}else if(hud.getLevel() == 6){ 
+						handler.addObject(new HardEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+				}else if(hud.getLevel() == 7){ 
+						handler.addObject(new HardEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+				}else if(hud.getLevel() == 8){ 
+						handler.addObject(new HardEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+				}else if(hud.getLevel() == 9){ 
+						handler.addObject(new HardEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+				}else if(hud.getLevel() == 10){ 
+					handler.addObject(new FastEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.FastEnemy, handler ));
+				}else if(hud.getLevel() == 11){ 
+					handler.addObject(new FastEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.FastEnemy, handler ));
+				}else if(hud.getLevel() == 12){ 
+					handler.addObject(new FastEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.FastEnemy, handler ));	
+				}else if(hud.getLevel() == 13){ 
+						handler.addObject(new FastEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.FastEnemy, handler ));
+				}else if(hud.getLevel() == 14){ 
+						handler.addObject(new FastEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.FastEnemy, handler ));
+				}else if(hud.getLevel() == 15){ 
+						handler.addObject(new FastEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.FastEnemy, handler ));
+				}else if(hud.getLevel() == 16){ 
+						handler.addObject(new FastEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.FastEnemy, handler ));
+				}else if(hud.getLevel() == 17){ 
+					handler.addObject(new FastEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.FastEnemy, handler ));
+				}else if(hud.getLevel() == 18){ 
+					handler.addObject(new FastEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.FastEnemy, handler ));
+				}else if(hud.getLevel() == 19){ 
+					handler.addObject(new FastEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.FastEnemy, handler ));	
+				}else if(hud.getLevel() == 20){ 
+						handler.addObject(new SmartEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.SmartEnemy, handler ));
+				}else if(hud.getLevel() == 21){ 
+						handler.addObject(new SmartEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.SmartEnemy, handler ));
+				}else if(hud.getLevel() == 22){ 
+						handler.addObject(new SmartEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.SmartEnemy, handler ));
+				}else if(hud.getLevel() == 23){ 
+						handler.addObject(new SmartEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.SmartEnemy, handler ));
+				}else if(hud.getLevel() == 24){
+						handler.addObject(new EnemyBoss((Game.WIDTH)/2 -46,-120, ID.EnemyBoss, handler ));
+				}else if(hud.getLevel() == 30){ 
+					handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+					handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH) -32 ,r.nextInt(Game.HEIGHT) -32, ID.BasicEnemy, handler ));
+				}else if(hud.getLevel() == 40){ 
+					handler.clearEnemys();
+				}
+			}
+		}
+	}
+} 
